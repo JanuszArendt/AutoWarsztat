@@ -1,4 +1,4 @@
-package pl.coderslab.utils.models;
+package pl.coderslab.models;
 
 public class Employee {
     private int id;

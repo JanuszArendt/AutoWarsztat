@@ -1,6 +1,7 @@
-package pl.coderslab.utils;
+package pl.coderslab.servlets;
 
-import pl.coderslab.utils.DAO.EmployeeDao;
+import pl.coderslab.DAO.EmployeeDao;
+import pl.coderslab.models.Employee;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -8,20 +9,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
-@WebServlet(name = "Servlet11", urlPatterns = "/test")
-public class Servlet11 extends HttpServlet {
+@WebServlet(name = "Employees", urlPatterns = "/Employees")
+public class Employees extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        EmployeeDao cDao = EmployeeDao.getInstance();
+        EmployeeDao employeeDao= EmployeeDao.getInstance();
+        List<Employee> cList = employeeDao.getAllEmployees();
+        request.setAttribute("employees", cList);
 
-        cDao.delete(1);
-
-        response.getWriter().append("zrobione");
-
-
+        request.getRequestDispatcher("/WEB-INF/Employees/employees.jsp").forward(request, response);
     }
 }
