@@ -95,7 +95,7 @@ public static EmployeeDao getInstance(){
     public boolean delete(int id){
         try(Connection conn = DbUtil.getConn();
             PreparedStatement statement = conn.prepareStatement
-                    ("DELETE FROM Employees WHERE id=?")) {
+                    ("DELETE FROM employees WHERE id=?")) {
             statement.setInt(1,id);
             int numRowsAffected = statement.executeUpdate();
             return numRowsAffected>0;
@@ -105,5 +105,7 @@ public static EmployeeDao getInstance(){
         }
 
     }
+
+
 
 }
