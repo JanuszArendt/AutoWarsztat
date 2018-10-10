@@ -73,7 +73,7 @@ public class EmployeeDao {
 
         try (Connection connection = DbUtil.getConn()) {
             try (PreparedStatement statement = connection.prepareStatement(
-                    "UPDATE Employees SET name=?, lastname=?, address=?, phone=?, note=?, pph=? WHERE id = ?")) {
+                    "UPDATE employees SET name=?, lastname=?, address=?, phone=?, note=?, pph=? WHERE id = ?")) {
 
                 statement.setString(1, employee.getName());
                 statement.setString(2, employee.getLastname());
@@ -81,6 +81,8 @@ public class EmployeeDao {
                 statement.setString(4, employee.getPhone());
                 statement.setString(5, employee.getNote());
                 statement.setDouble(6, employee.getPph());
+                statement.setInt(7, employee.getId());
+
 
                 statement.executeUpdate();
                 return true;

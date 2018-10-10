@@ -16,12 +16,22 @@
 <html>
 <head>
     <title>Employees</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            padding: 2px;
+        }
+        th, td {
+            padding: 10px;
+        }
+    </style>
 </head>
 <body>
 <%@include file="/WEB-INF/header.jsp" %>
 | <a href="AddEmployee">add employee</a> |
 <a href="EditEmployee">edit employee</a> |
 <a href="DeleteEmployee">delete employee</a> |
+<br><br>
 
 <table>
     <tr>
@@ -32,6 +42,7 @@
         <th>Phone</th>
         <th>Note</th>
         <th>PP hour</th>
+        <th>Action</th>
     </tr>
     <%
         ArrayList<Employee> employees = (ArrayList<Employee>) request.getAttribute("employees");
@@ -55,6 +66,9 @@
         <td><%=currPhone%></td>
         <td><%=currNote%></td>
         <td><%=currPph%></td>
+        <td>
+        <a href="DeleteEmployee">delete</a>
+        </td>
     </tr>
 
     <%
