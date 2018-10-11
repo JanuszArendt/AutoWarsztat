@@ -27,8 +27,10 @@
     </style>
 </head>
 <body>
+
 <%@include file="/WEB-INF/fragments/header.jsp" %>
-| <a href="employeeaddnew">add employee</a> |
+<%@include file="/WEB-INF/fragments/menu.jsp"%>
+
 
 <br><br>
 

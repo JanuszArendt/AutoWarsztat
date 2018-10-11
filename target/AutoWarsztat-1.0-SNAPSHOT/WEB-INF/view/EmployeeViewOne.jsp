@@ -26,6 +26,7 @@
 
 <body>
 <%@include file="/WEB-INF/fragments/header.jsp" %>
+<%@include file="/WEB-INF/fragments/menu.jsp"%>
 
 
 <br><br>
