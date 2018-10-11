@@ -19,7 +19,7 @@ public class EmployeeDao {
         return instance;
     }
 
-    private EmployeeDao() {
+    public EmployeeDao() {
 
     }
 
@@ -45,7 +45,7 @@ public class EmployeeDao {
         }
     }
 
-    public Employee getEmployeeById(int id) {
+    public  Employee getEmployeeById(int id) {
         try (Connection conn = DbUtil.getConn();
              PreparedStatement statement = conn.prepareStatement
                      ("SELECT *  FROM employees WHERE id=?")) {
@@ -54,7 +54,7 @@ public class EmployeeDao {
             while (rs.next()) {
                 Integer employeeId = rs.getInt("id");
                 String name = rs.getString("name");
-                String lastname = rs.getString("surname");
+                String lastname = rs.getString("lastname");
                 String address = rs.getString("address");
                 String phone = rs.getString("phone");
                 String note = rs.getString("note");

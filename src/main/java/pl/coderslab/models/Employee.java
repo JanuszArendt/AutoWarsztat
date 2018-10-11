@@ -28,6 +28,10 @@ public class Employee {
         this.pph = pph;
     }
 
+    public Employee(){
+
+    }
+
     public int getId() {
         return id;
     }
